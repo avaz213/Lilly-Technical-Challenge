@@ -5,8 +5,6 @@ fetch('http://localhost:8000/medicines')
 })
 .catch(err => console.error("An error has occured:", err));
 
-
-
 function createtable(medicineData) {
   var medicineTable = document.getElementById("medicineTable");
   let rows = "";
@@ -27,3 +25,29 @@ function createtable(medicineData) {
 
   medicineTable.innerHTML += rows;
 }
+
+document.getElementById("userForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const userData = new FormData(e.target);
+  const userMedicine = {
+    name: userData.get("medicine-name"),
+    price: parseFloat(userData.get("medicine-price"))
+  };
+
+  addRow(userMedicine);
+});
+
+function addRow(userInput) {
+  const medicineTable = document.getElementById("medicineTable");
+  const row = `
+    <tr>
+      <td>${userInput.name}</td>
+      <td>${userInput.price}</td>
+    </tr>
+  `;
+
+  medicineTable.innerHTML += row;
+}
+
+
