@@ -10,14 +10,19 @@ fetch('http://localhost:8000/medicines')
 function createtable(medicineData) {
   var medicineTable = document.getElementById("medicineTable");
   let rows = "";
+  var incomplete = [];
 
   for (var i = 0; i < medicineData.length; i++) {
-    rows += `
-      <tr>
-        <td>${medicineData[i].name}</td>
-        <td>${medicineData[i].price}</td>
-      </tr>
-    `;
+    if (medicineData[i].name != "" && medicineData[i].price != null)
+    {
+      rows += `
+        <tr>
+          <td>${medicineData[i].name}</td>
+          <td>${medicineData[i].price}</td>
+        </tr>
+      `;
+    }
+    
   }
 
   medicineTable.innerHTML += rows;
