@@ -34,7 +34,7 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #fc2403;
   color: white;
 }
 
@@ -43,4 +43,20 @@ td, th {
   padding: 8px;
 }
 
-.centerTable { margin: 0px auto; }
+h1{
+    color: #fc2403
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px;                      
+}
+
+.left, .right {
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+}

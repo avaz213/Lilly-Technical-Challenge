@@ -11,28 +11,36 @@
         Disclaimer: All medicine names and prices used in this application are fictional and do not represent any real medicine(s).
     </div>
     <header>
-        <h1>Medicine Tracker</h1>
+        <center><h1>Medicine Tracker</h1></center>
     </header>
 
     <main>
-        <table> 
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-            </tr>
+        <div class="container">
+            <div class="left">
+                <table> 
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
 
-            <tbody id="medicineTable">
+                    <tbody id="medicineTable">
 
-            </tbody>
-          </table>
-
-          <form id="userForm">
-            <label for="name-field" >Medicine Name </label>
-            <input name="medicine-name" type="text" id="name-field">
-            <label for="price-field"> Price</label>
-            <input name="medicine-price" type="currency" id="price-field">
-            <button></button>
-          </form>
+                    </tbody>
+                </table>
+            </div>
+            <div class="right">
+                <h2>Enter Medicine Details</h2>
+                <form id="userForm">
+                    <label for="name-field" >Medicine Name: </label><br>
+                    <input name="medicine-name" type="text" id="name-field"><br>
+                    <br>
+                    <label for="price-field"> Price:</label><br>
+                    <input name="medicine-price" type="currency" id="price-field"><br>
+                    <br>
+                    <button>Enter</button>
+                </form>
+            </div>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>

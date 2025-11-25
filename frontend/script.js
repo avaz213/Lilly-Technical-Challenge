@@ -11,7 +11,7 @@ function createtable(medicineData) {
   var incomplete = [];
 
   for (var i = 0; i < medicineData.length; i++) {
-    if (medicineData[i].name != "" && medicineData[i].price != null)
+    if (medicineData[i].name != "" && medicineData[i].price != null )
     {
       rows += `
         <tr>
@@ -30,6 +30,10 @@ document.getElementById("userForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const userData = new FormData(e.target);
+
+  // check for blank entries
+  // check if its a number
+
   const userMedicine = {
     name: userData.get("medicine-name"),
     price: parseFloat(userData.get("medicine-price"))
