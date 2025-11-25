@@ -16,6 +16,7 @@
 
     <main>
         <div class="container">
+            <!--Table side of UI-->
             <div class="left">
                 <table> 
                     <tr>
@@ -28,17 +29,21 @@
                     </tbody>
                 </table>
             </div>
+            <!--User input side of UI-->
             <div class="right">
                 <h2>Enter Medicine Details</h2>
                 <form id="userForm">
-                    <label for="name-field" >Medicine Name: </label><br>
+                    <label for="name-field" >Medicine Name: *</label><br>
                     <input name="medicine-name" type="text" id="name-field"><br>
                     <br>
-                    <label for="price-field"> Price:</label><br>
+                    <label for="price-field"> Price: *</label><br>
                     <input name="medicine-price" type="currency" id="price-field"><br>
                     <br>
                     <button>Enter</button>
                 </form>
+                <!--Error messages-->
+                <p id="blankError" class="error">Both Name and Price fields are required.</p>
+                <p id="numberError" class="error">Price must be a number.</p>
             </div>
         </div>
     </main>

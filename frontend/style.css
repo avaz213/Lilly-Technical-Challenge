@@ -60,3 +60,8 @@ h1{
 table {
   width: 100%;
 }
+
+.error{
+  color: #fc2403;
+  visibility: hidden;
+}

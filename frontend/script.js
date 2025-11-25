@@ -1,3 +1,4 @@
+// Displaying data from server into table
 fetch('http://localhost:8000/medicines')
   .then(response => response.json())
   .then(medicineData => {
@@ -11,14 +12,21 @@ function createtable(medicineData) {
   var incomplete = [];
 
   for (var i = 0; i < medicineData.length; i++) {
-    if (medicineData[i].name != "" && medicineData[i].price != null )
+    // Checking if data contains blank entries and if the price entered is a number
+    if (medicineData[i].name != "" && medicineData[i].price != null && isNaN(medicineData[i].price) == false)
     {
       rows += `
         <tr>
           <td>${medicineData[i].name}</td>
-          <td>${medicineData[i].price}</td>
+          <td>${parseFloat(medicineData[i].price).toFixed(2)}</td>
         </tr>
       `;
+    }
+
+    // Any data not meeting previous conditions is pushed to incomplete
+    else
+    {
+      incomplete.push([medicineData[i].name,medicineData[i].price]);
     }
     
   }
@@ -28,18 +36,35 @@ function createtable(medicineData) {
 
 document.getElementById("userForm").addEventListener("submit", function(e) {
   e.preventDefault();
+  // Hiding error messages in case they were visible from previous submission
+  blank = document.getElementById("blankError");
+  numberFormat = document.getElementById("numberError");
+  blank.style.visibility = "hidden";
+  numberFormat.style.visibility = "hidden";
 
   const userData = new FormData(e.target);
-
-  // check for blank entries
-  // check if its a number
 
   const userMedicine = {
     name: userData.get("medicine-name"),
     price: parseFloat(userData.get("medicine-price"))
   };
+  // Checking for null entries
+  if (userMedicine.name == null || userMedicine.price == null)
+  {
+    blank.style.visibility = "visible";
+  }
 
-  addRow(userMedicine);
+  // Checking if price is a number
+  else if (isNaN(userMedicine.price) == true )
+  {
+    numberFormat.style.visibility = "visible";
+  }
+
+  else
+  {
+    addRow(userMedicine);
+  }
+
 });
 
 function addRow(userInput) {
