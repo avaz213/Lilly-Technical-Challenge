@@ -57,6 +57,7 @@ h1{
   padding: 10px;
 }
 
+
 table {
   width: 100%;
 }
@@ -64,4 +65,12 @@ table {
 .error{
   color: #fc2403;
   visibility: hidden;
+}
+
+input{
+  width: 100%;
+}
+
+button{
+  width: 100px;
 }

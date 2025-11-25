@@ -63,6 +63,16 @@ document.getElementById("userForm").addEventListener("submit", function(e) {
   else
   {
     addRow(userMedicine);
+
+    // Code to update local host however I get 405 Method Not Allowed error, as we wern't allowed to edit data.json I struggled with sending data to backend.
+    /* 
+    fetch("http://localhost:8000/medicines", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(userMedicine)
+    })
+    .then(res => res.text()) */
+    
   }
 
 });
